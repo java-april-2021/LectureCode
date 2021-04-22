@@ -6,6 +6,7 @@ public class BasicsTester {
 
     int number = 33;
     basic.returnNumber(number);
+    sayHello();
   }
 
   public static void sayHello() {
