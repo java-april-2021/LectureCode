@@ -34,6 +34,8 @@ public class GoldController {
 	public String findGold(@RequestParam("building") String building, HttpSession session) {
 		int goldThisTurn;
 		int gold = (int)session.getAttribute("gold");
+		
+
 		ArrayList<String> activity = (ArrayList<String>)session.getAttribute("activity");
 		Random r = new Random();
 		LocalDateTime now = LocalDateTime.now();
