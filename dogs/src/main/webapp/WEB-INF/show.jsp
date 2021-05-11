@@ -17,9 +17,22 @@
 <p>Name: ${dog.name }</p>
 <p>Breed: ${dog.breed }</p>
 <p>Age: ${dog.age}</p>
+<hr>
+<h3>Liked By:</h3>
+<ol>
+<c:forEach items="${dog.likers}" var="user">
+<li>${user.firstName} ${user.lastName}
+</c:forEach>
+</ol>
+<hr>
+<h2>Toys</h2>
+<ol>
+<c:forEach items="${dog.toys}" var="toy">
+<li>${toy.name} (${toy.price}) - ${toy.description}</li>
+</c:forEach>
+</ol>
 
 <hr>
-
 <c:choose>
 <c:when test="${dog.tag != null }">
 <h2>Tag Details</h2>
@@ -46,7 +59,7 @@
 </c:otherwise>
 
 </c:choose>
-
+<a href="/edit/${dog.id}" class="btn btn-danger">Edit Dog</a>
 
 </div>
 </body>

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.matthew.dogs.models.Dog;
+import com.matthew.dogs.models.User;
 import com.matthew.dogs.repositories.DogRepository;
 
 @Service
@@ -45,5 +46,25 @@ public class DogService {
 	public Dog createDogHTML(String name, String breed, int age) {
 		Dog newDog = new Dog(name, breed, age);
 		return this.dRepo.save(newDog);
+	}
+	
+	// Add Liker
+	public void addLiker(User user, Dog dog) {
+		// Get the arraylist from the dog object
+		List<User> likers = dog.getLikers();
+		// Add User To List
+		likers.add(user);
+		// Update the Database
+		this.dRepo.save(dog);
+	}
+	
+	// Add Liker
+	public void removeLiker(User user, Dog dog) {
+		// Get the arraylist from the dog object
+		List<User> likers = dog.getLikers();
+		// Add User To List
+		likers.remove(user);
+		// Update the Database
+		this.dRepo.save(dog);
 	}
 }
